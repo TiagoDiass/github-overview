@@ -13,9 +13,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'UsernameInput',
+
   components: {},
+
+  computed: {
+    ...mapGetters({
+      loading: 'user/getLoadingState',
+    }),
+  },
+
+  methods: {
+    ...mapActions({}),
+  },
 };
 </script>
 
@@ -65,7 +78,7 @@ export default {
         height: 100%;
         background-color: $white;
         color: $primary;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         cursor: pointer;
 
         i {
@@ -78,7 +91,7 @@ export default {
           background-color: #eee;
 
           i {
-            transform: scale(1.2);
+            transform: scale(1.15);
           }
         }
       }
