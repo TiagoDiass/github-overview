@@ -28,7 +28,7 @@ const actions = {
           commit('setLoading', false);
           commit('setUser', response.data);
           resolve({
-            status: response.status,
+            status: 200,
             message: 'Usuário encontrado com sucesso',
           });
         })
@@ -78,7 +78,7 @@ const mutations = {
     state.repositories = data;
   },
 
-  setLoadingState(state, data) {
+  setLoading(state, data) {
     state.loading = data;
   },
 };

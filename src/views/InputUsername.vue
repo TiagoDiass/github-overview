@@ -1,24 +1,34 @@
 <template>
   <div class="username-input-view">
-    <div class="username-input">
+    <div class="username-input" v-if="!loading">
       <h1>Procure por algum perfil</h1>
       <div class="input">
-        <input type="text" />
-        <button>
-          <i class="fas fa-paper-plane"></i>
+        <input type="text" v-model="username" placeholder="Nome de usuário" @keydown.enter="fetchUser" />
+        <button @click="fetchUser" :class="{ disabled: !username }">
+          <i class="fas fa-search"></i>
         </button>
       </div>
+      <small v-if="error">
+        {{ error }}
+      </small>
     </div>
+    <Loading v-else />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import Loading from '../components/Loading.vue';
 
 export default {
   name: 'UsernameInput',
 
-  components: {},
+  components: { Loading },
+
+  data: () => ({
+    username: '',
+    error: '',
+  }),
 
   computed: {
     ...mapGetters({
@@ -27,7 +37,25 @@ export default {
   },
 
   methods: {
-    ...mapActions({}),
+    ...mapActions({
+      fetchUserAction: 'user/fetchUser',
+    }),
+
+    async fetchUser() {
+      if (!this.username) {
+        return (this.error = 'Você deve digitar um nome de usuário');
+      }
+
+      await this.fetchUserAction({ username: this.username })
+        .then(response => {
+          if (response.status == 200) {
+            this.$router.push({ name: 'userInfo' });
+          }
+        })
+        .catch(() => {
+          this.error = 'Não conseguimos encontrar um usuário com este nome';
+        });
+    },
   },
 };
 </script>
@@ -56,6 +84,7 @@ export default {
 
     .input {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       height: 3.2rem;
 
@@ -68,6 +97,7 @@ export default {
         color: $white;
         font-size: 1.4rem;
         padding: 0.8rem;
+        font-family: 'Poppins', sans-serif;
       }
 
       button {
@@ -85,13 +115,26 @@ export default {
           transition: transform 0.3s;
         }
 
+        &.disabled {
+          background-color: #ddd;
+          cursor: initial;
+
+          &:hover {
+            background-color: #ddd;
+
+            i {
+              transform: initial;
+            }
+          }
+        }
+
         transition: background 0.15s;
 
         &:hover {
           background-color: #eee;
 
           i {
-            transform: scale(1.15);
+            transform: scale(1.15) scaleX(-1);
           }
         }
       }
