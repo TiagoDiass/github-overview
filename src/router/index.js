@@ -10,6 +10,12 @@ const routes = [
     name: 'InputUsername',
     component: InputUsername,
   },
+  {
+    path: '/user/:username',
+    name: 'userInfo',
+    component: () => import('../views/UserInfo.vue'),
+    props: true,
+  },
 ];
 
 const router = new VueRouter({

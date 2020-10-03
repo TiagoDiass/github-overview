@@ -39,6 +39,7 @@ export default {
   methods: {
     ...mapActions({
       fetchUserAction: 'user/fetchUser',
+      fetchRepositories: 'user/fetchRepositories',
     }),
 
     async fetchUser() {
@@ -46,15 +47,16 @@ export default {
         return (this.error = 'Você deve digitar um nome de usuário');
       }
 
-      await this.fetchUserAction({ username: this.username })
-        .then(response => {
-          if (response.status == 200) {
-            this.$router.push({ name: 'userInfo' });
-          }
-        })
-        .catch(() => {
-          this.error = 'Não conseguimos encontrar um usuário com este nome';
-        });
+      try {
+        const resposta = await this.fetchUserAction({ username: this.username });
+
+        if (resposta.status == 200) {
+          this.fetchRepositories({ username: this.username });
+          this.$router.push({ path: `/user/${this.username}` });
+        }
+      } catch (error) {
+        this.error = error.message;
+      }
     },
   },
 };
