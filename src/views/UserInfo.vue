@@ -13,7 +13,9 @@
 
     <!-- Repositories section -->
     <section class="repositories-section">
-      <h1>user repos</h1>
+      <div class="container">
+        <RepoBlock v-for="(repository, index) in repositories" :key="index" :repository="repository" />
+      </div>
     </section>
   </div>
 </template>
@@ -21,9 +23,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import UserStats from '../components/UserStats.vue';
+import RepoBlock from '../components/RepositoryBlock.vue';
+
 export default {
   components: {
     UserStats,
+    RepoBlock,
   },
 
   mounted() {
@@ -57,8 +62,7 @@ export default {
     align-items: center;
     width: 60%;
     padding: 1.5rem 0;
-    padding-bottom: 5rem;
-    border: 1px solid red;
+    padding-bottom: 5.5rem;
 
     img {
       border: 0.5rem solid $blue;
@@ -98,6 +102,16 @@ export default {
       max-width: 50%;
       text-align: center;
     }
+  }
+}
+
+.repositories-section {
+  display: flex;
+  justify-content: center;
+  color: $primary;
+
+  .container {
+    width: 80%;
   }
 }
 </style>

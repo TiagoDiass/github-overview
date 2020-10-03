@@ -56,8 +56,18 @@ const actions = {
       await api
         .get(url)
         .then(response => {
+          const repositories = response.data.map(repo => ({
+            name: repo.name,
+            description: repo.description,
+            language: repo.language,
+            stargazers_count: repo.stargazers_count,
+            forks_count: repo.forks_count,
+            size: repo.size,
+            html_url: repo.html_url,
+          }));
+
           commit('setLoading', false);
-          commit('setRepositories', response.data);
+          commit('setRepositories', repositories);
           resolve({
             status: response.status,
             message: 'Usuário encontrado com sucesso',

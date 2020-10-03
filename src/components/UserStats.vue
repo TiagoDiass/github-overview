@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 @import '../assets/styles/variables';
 .user-stats {
-  margin-top: 0.3rem;
+  margin-top: 1.4rem;
   display: flex;
   justify-content: center;
 
