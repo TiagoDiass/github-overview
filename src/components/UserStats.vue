@@ -1,16 +1,28 @@
 <template>
   <div class="user-stats">
     <div class="stat-block">
-      <h4>{{ user.public_repos }}</h4>
-      <p>Repositórios</p>
+      <div class="number">
+        <p>{{ user.public_repos }}</p>
+      </div>
+      <div class="label">
+        <span>Repositórios</span>
+      </div>
     </div>
     <div class="stat-block">
-      <h4>{{ user.followers }}</h4>
-      <p>Seguidores</p>
+      <div class="number">
+        <p>{{ user.followers }}</p>
+      </div>
+      <div class="label">
+        <span>Seguidores</span>
+      </div>
     </div>
     <div class="stat-block">
-      <h4>{{ user.following }}</h4>
-      <p>Seguindo</p>
+      <div class="number">
+        <p>{{ user.following }}</p>
+      </div>
+      <div class="label">
+        <span>Seguindo</span>
+      </div>
     </div>
   </div>
 </template>
@@ -29,30 +41,47 @@ export default {
 <style lang="scss">
 @import '../assets/styles/variables';
 .user-stats {
+  margin-top: 0.3rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 
   .stat-block {
     background: $secondary;
     color: $white;
     border-radius: 0.3125rem;
-    margin: 0.35rem;
     width: 150px;
     padding: 15px 20px;
+    margin-right: 0.5rem;
 
-    h4 {
-      font-size: 1.5rem;
-      text-align: center;
+    &:nth-of-type(2) {
+      .label {
+        text-align: center;
+      }
     }
 
-    p {
-      font-weight: 400;
-      font-size: 1rem;
-      opacity: 0.8;
-      text-transform: uppercase;
-      display: inline-block;
+    &:last-of-type {
+      margin-right: 0;
+
+      .label {
+        text-align: center;
+      }
+    }
+
+    .number {
+      text-align: center;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .label {
+      text-align: left;
       width: 100%;
+
+      span {
+        text-transform: uppercase;
+      }
     }
   }
 }
