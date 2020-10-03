@@ -54,6 +54,7 @@ export default {
   display: flex;
   justify-content: center;
   color: $white;
+  z-index: 0;
 
   .container {
     display: flex;
@@ -62,7 +63,6 @@ export default {
     align-items: center;
     width: 60%;
     padding: 1.5rem 0;
-    padding-bottom: 5.5rem;
 
     img {
       border: 0.5rem solid $blue;
@@ -112,6 +112,11 @@ export default {
 
   .container {
     width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 1rem;
   }
 }
 </style>
