@@ -85,4 +85,15 @@ export default {
     }
   }
 }
+
+@media (max-width: 590px) {
+  .user-stats {
+    flex-direction: column;
+
+    .stat-block {
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
 </style>

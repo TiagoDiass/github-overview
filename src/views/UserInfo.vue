@@ -57,7 +57,8 @@ export default {
     align-items: center;
     width: 60%;
     padding: 1.5rem 0;
-    border: 1px solid white;
+    padding-bottom: 5rem;
+    border: 1px solid red;
 
     img {
       border: 0.5rem solid $blue;
