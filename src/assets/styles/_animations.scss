@@ -1,0 +1,59 @@
+@keyframes slide-in {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+
+.slide-enter-active {
+  animation: slide-in 0.3s ease;
+}
+
+.slide-leave-active {
+  animation: slide-out 0.3s ease;
+}
+
+.slide2-enter-active {
+  animation: slide-in 0.3s ease;
+  animation-delay: 2s;
+}
+
+.slide2-leave-active {
+  animation: slide-out 0.3s ease;
+}
+
+@keyframes bounce-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.4s ease;
+}
+
+.bounce-leave-active {
+  animation: bounce-in 0.4s ease reverse;
+}

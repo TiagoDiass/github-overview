@@ -3,11 +3,22 @@
     <!-- User stats sections -->
     <section class="user-stats-section">
       <div class="container">
+        <div class="back-button" @click="navigateBack">
+          <i class="fas fa-arrow-left"></i>
+          Voltar
+        </div>
+
         <img :src="user.avatar_url" alt="User Profile Picture" />
+
         <h1>{{ user.name }}</h1>
+
         <a :href="user.html_url" target="_blank">@{{ user.login }}</a>
+
         <p>{{ user.bio }}</p>
-        <UserStats />
+
+        <transition name="bounce">
+          <UserStats v-if="pageLoaded" />
+        </transition>
       </div>
     </section>
 
@@ -35,13 +46,27 @@ export default {
     if (!Object.keys(this.user).length) {
       this.$router.push({ path: '/' });
     }
+
+    setTimeout(() => {
+      this.pageLoaded = true;
+    }, 1000);
   },
+
+  data: () => ({
+    pageLoaded: false,
+  }),
 
   computed: {
     ...mapGetters({
       user: 'user/getUser',
       repositories: 'user/getRepositories',
     }),
+  },
+
+  methods: {
+    navigateBack() {
+      this.$router.push({ path: '/' });
+    },
   },
 };
 </script>
@@ -63,6 +88,28 @@ export default {
     align-items: center;
     width: 60%;
     padding: 1.5rem 0;
+
+    .back-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1rem;
+
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+
+      transition: color 0.2s ease;
+
+      i {
+        margin-right: 0.4rem;
+      }
+
+      &:hover {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
 
     img {
       border: 0.5rem solid $blue;
