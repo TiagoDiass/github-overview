@@ -66,6 +66,13 @@ const actions = {
             html_url: repo.html_url,
           }));
 
+          // Sorting repositories by number of stars
+          repositories.sort((repo1, repo2) => {
+            if (repo1.stargazers_count < repo2.stargazers_count) return 1;
+            if (repo1.stargazers_count > repo2.stargazers_count) return -1;
+            return 0;
+          });
+
           commit('setLoading', false);
           commit('setRepositories', repositories);
           resolve({
