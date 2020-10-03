@@ -12,6 +12,8 @@ const getters = {
   getUser: state => state.user,
 
   getLoadingState: state => state.loading,
+
+  getRepositories: state => state.repositories,
 };
 
 const actions = {
@@ -26,11 +28,14 @@ const actions = {
         .get(url)
         .then(response => {
           commit('setLoading', false);
-          commit('setUser', response.data);
-          resolve({
-            status: 200,
-            message: 'Usuário encontrado com sucesso',
-          });
+
+          if (response.status == 200) {
+            commit('setUser', response.data);
+            resolve({
+              status: 200,
+              message: 'Usuário encontrado com sucesso',
+            });
+          }
         })
         .catch(err => {
           commit('setLoading', false);
@@ -59,10 +64,11 @@ const actions = {
           });
         })
         .catch(err => {
+          console.error(err);
           commit('setLoading', false);
           reject({
             status: err.response.status,
-            message: 'Usuário não encontrado',
+            message: 'Não conseguimos encontrar um usuário com este nome',
           });
         });
     });
