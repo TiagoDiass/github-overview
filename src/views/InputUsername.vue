@@ -143,4 +143,14 @@ export default {
     }
   }
 }
+
+@media (max-width: 500px) {
+  .username-input {
+    h1 {
+      margin-bottom: 0.8rem;
+    }
+
+    padding: 0 0.8rem;
+  }
+}
 </style>

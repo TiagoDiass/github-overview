@@ -166,4 +166,12 @@ export default {
     padding-top: 1rem;
   }
 }
+
+@media (max-width: 450px) {
+  .repositories-section .container {
+    width: 100%;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+}
 </style>

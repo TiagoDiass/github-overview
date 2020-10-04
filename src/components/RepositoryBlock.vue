@@ -108,4 +108,10 @@ export default {
     box-shadow: $shadow-secondary;
   }
 }
+
+@media (max-width: 450px) {
+  .repo-block {
+    width: 100%;
+  }
+}
 </style>
