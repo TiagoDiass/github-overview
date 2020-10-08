@@ -1,42 +1,29 @@
-@keyframes slide-in {
+@keyframes fade-in {
   from {
-    transform: translateX(-30px);
     opacity: 0;
   }
 
   to {
-    transform: translateX(0);
     opacity: 1;
   }
 }
 
-@keyframes slide-out {
+@keyframes fade-out {
   from {
-    transform: translateX(0);
     opacity: 1;
   }
 
   to {
-    transform: translateX(-30px);
     opacity: 0;
   }
 }
 
-.slide-enter-active {
-  animation: slide-in 0.3s ease;
+.fade-enter-active {
+  animation: fade-in 0.3s ease;
 }
 
-.slide-leave-active {
-  animation: slide-out 0.3s ease;
-}
-
-.slide2-enter-active {
-  animation: slide-in 0.3s ease;
-  animation-delay: 2s;
-}
-
-.slide2-leave-active {
-  animation: slide-out 0.3s ease;
+.fade-leave-active {
+  animation: fade-out 0.3s ease;
 }
 
 @keyframes bounce-in {
