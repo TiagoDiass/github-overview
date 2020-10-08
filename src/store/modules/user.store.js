@@ -49,7 +49,7 @@ const actions = {
 
   fetchRepositories({ commit }, { username }) {
     return new Promise(async (resolve, reject) => {
-      const url = `/users/${username}/repos`;
+      const url = `/users/${username}/repos?per_page=100`;
       const api = Vue.prototype.$httpClient;
 
       commit('setLoading', true);
