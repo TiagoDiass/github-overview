@@ -1,5 +1,10 @@
 <template>
   <div class="username-input-view">
+    <a href="http://github.com/TiagoDiass/github-overview" target="_blank" rel="noopener noreferrer" class="repo-link">
+      Código Fonte
+      <i class="fas fa-file-code"></i>
+    </a>
+
     <div class="username-input" v-if="!loading">
       <h1>Procure por algum perfil</h1>
       <div class="input">
@@ -89,6 +94,30 @@ export default {
   justify-content: center;
   align-items: center;
 
+  .repo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: $white;
+    text-decoration: none;
+
+    position: absolute;
+    right: 1.1rem;
+    top: 1.1rem;
+
+    transition: color 0.2s ease;
+
+    i {
+      margin-left: 0.4rem;
+    }
+
+    &:hover {
+      color: $blue;
+      cursor: pointer;
+    }
+  }
+
   .username-input {
     display: inline-block;
     animation: slide-from-left 1s ease;
@@ -162,6 +191,7 @@ export default {
 
 @media (max-width: 500px) {
   .username-input {
+    overflow-y: hidden;
     h1 {
       margin-bottom: 0.8rem;
     }
