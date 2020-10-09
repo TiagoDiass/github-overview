@@ -17,7 +17,6 @@
   <a href="#technologies">Used technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#objective">Project's goal</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#final-result">Final result</a>
-  <a href="#how-to-use">How to Run</a>
 </p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -52,15 +51,14 @@ The goal of this project was practing Vue.js and styling with Sass, and also a l
 </h2>
 
 ### [You can check the final result clicking here](https://github-profile-overview.netlify.app/)
+
 ---
 
 ### Special thanks
+
 I would like to thank my friend [Caio](https://github.com/CaioAugustoo) for giving me the idea of this project, if you want, you can check his version of this project made with React just searching for `git-overview` in his profile
 
 Hope you liked this project :smiley:<br>
 :wave: [Get in touch!](https://www.linkedin.com/in/tiagodiass)
 
 ### Author: Tiago Dias
-
-
-
