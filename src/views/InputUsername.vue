@@ -65,6 +65,21 @@ export default {
 <style lang="scss">
 @import '../assets/styles/variables';
 
+@keyframes slide-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-8rem);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateX(+4.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .username-input-view {
   background-color: $primary;
   color: $white;
@@ -76,6 +91,7 @@ export default {
 
   .username-input {
     display: inline-block;
+    animation: slide-from-left 1s ease;
 
     h1 {
       font-weight: 400;
