@@ -56,7 +56,7 @@ The goal of this project was practing Vue.js and styling with Sass, and also a l
 
 ### Special thanks
 
-I would like to thank my friend [Caio](https://github.com/CaioAugustoo) for giving me the idea of this project, if you want, you can check his version of this project made with React just searching for `git-overview` in his profile
+I would like to thank my friend [Caio](https://github.com/CaioAugustoo) for giving me the idea of this project, if you want, you can check his version of this project made with React just searching for `git-finder` in his profile
 
 Hope you liked this project :smiley:<br>
 :wave: [Get in touch!](https://www.linkedin.com/in/tiagodiass)
